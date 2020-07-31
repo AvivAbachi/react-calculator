@@ -1,0 +1,18 @@
+* {
+  font-family: 'Fredoka One', -apple-system, BlinkMacSystemFont, Roboto, 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+  line-height: normal;
+  box-sizing: border-box;
+  transition-timing-function: ease;
+  transition-duration: 0.3s;
+  transition-property: background-color, color, box-shadow, transform;
+  border: 0;
+  outline: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // outline: lightseagreen 1px solid !important;
+}
+@font-face {
+  font-family: 'Fredoka One';
+  src: url('./font/FredokaOne-Regular.ttf');
+}

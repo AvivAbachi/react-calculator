@@ -1,0 +1,198 @@
+//LIGHT THEME
+$text-color: #003652;
+$buttons-color: #f4f4f4;
+$calc-color: #f0f0f0;
+$bg-color: #e4e4e4;
+
+//DARK THEME
+$text-color-dark: #eff9ff;
+$buttons-color-dark: #4b4b4b;
+$calc-color-dark: #3b3b3b;
+$bg-color-dark: #2b2b2b;
+
+//SHADOWS
+$shadow: inset 8px 8px 16px #fff4, 8px 8px 16px #0002;
+$shadow-inner: inset 8px 8px 16px #0002;
+$shadow-dark: inset -8px -8px 16px #0002, 8px 8px 16px #0002;
+$shadow-inner-dark: inset 8px 8px 16px #0002;
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 32px;
+  background-color: $bg-color;
+}
+
+.calc {
+  display: grid;
+  justify-content: center;
+  width: fit-content;
+  padding: 24px;
+  border-radius: 24px;
+  background-color: $calc-color;
+  box-shadow: $shadow-dark;
+  grid-template-columns: repeat(4, 64px);
+  grid-template-rows: 32px repeat(7, 64px);
+  gap: 16px;
+}
+
+a,
+label,
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: $text-color;
+  border-radius: 48px;
+  background-color: $buttons-color;
+  box-shadow: $shadow;
+}
+
+button {
+  &:hover:not(:focus) {
+    transform: scale(1.075);
+  }
+  &:focus {
+    background-color: $bg-color;
+    box-shadow: $shadow-inner;
+  }
+}
+
+label {
+  padding: 0 24px;
+  background-color: lightseagreen;
+  box-shadow: $shadow-inner;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  #display {
+    position: relative;
+    width: 100%;
+    color: $text-color;
+    border: 0;
+    background-color: transparent;
+  }
+}
+h1 {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-color;
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+#add,
+#divide,
+#multiply,
+#subtract {
+  padding-bottom: 4px;
+  font-size: 1.75rem;
+  background-color: lightskyblue;
+}
+
+#clear {
+  background-color: lightcoral;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#back-space {
+  padding-bottom: 6px;
+  font-size: 1.75rem;
+  padding-right: 8px;
+  background-color: lightsalmon;
+}
+
+#equals {
+  padding-bottom: 4px;
+  font-size: 1.75rem;
+  background-color: darkseagreen;
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+#dark-btn {
+  font-size: 1.75rem;
+  color: $text-color-dark;
+  background-color: $buttons-color-dark;
+  &:focus {
+    background-color: $calc-color-dark;
+  }
+}
+
+#creadit {
+  font-size: 0.825rem;
+  height: 100%;
+  padding-top: 2px;
+  text-align: center;
+  text-decoration: none;
+  background-color: $bg-color;
+  box-shadow: $shadow-inner;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  &:hover:not(:active) {
+    padding-top: 0;
+    background-color: $buttons-color;
+    box-shadow: $shadow;
+  }
+}
+
+[dark-theme='true'] {
+  body {
+    background-color: $bg-color-dark;
+  }
+  .calc {
+    background-color: $calc-color-dark;
+  }
+  a,
+  button,
+  label #display,
+  h1 {
+    color: $text-color-dark;
+  }
+  button {
+    background-color: $buttons-color-dark;
+    box-shadow: $shadow-dark;
+    &:focus {
+      background-color: $bg-color-dark;
+      box-shadow: $shadow-inner-dark;
+    }
+  }
+
+  #dark-btn {
+    color: $text-color;
+    background-color: $buttons-color;
+    &:focus {
+      background-color: $bg-color;
+    }
+  }
+
+  #creadit {
+    background-color: $bg-color-dark;
+    box-shadow: $shadow-inner-dark;
+    &:hover:not(:active) {
+      background-color: $buttons-color-dark;
+      box-shadow: $shadow-dark;
+    }
+  }
+}
+
+@media screen and (max-width: 720px) and (orientation: landscape), (max-width: 720px) {
+  body {
+    display: block;
+    padding: 0;
+  }
+  .calc {
+    align-content: flex-start;
+    min-width: 100vw;
+    min-height: 100vh;
+    padding-top: 16px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
