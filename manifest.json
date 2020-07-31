@@ -1,10 +1,19 @@
 {
   "short_name": "React Calc",
   "name": "React Calculator",
+  "description": "React Calculator Created by AvivAbachi@gmail.com",
+  "start_url": ".",
+  "orientation": "portrait",
+  "display": "fullscreen",
+  "theme_color": "#003652",
+  "background_color": "#e4e4e4",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["utilities", "education"],
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64",
+      "sizes": "48x48",
       "type": "image/x-icon"
     },
     {
@@ -17,9 +26,5 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#003652",
-  "background_color": "#e4e4e4"
+  ]
 }
