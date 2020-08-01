@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.scss';
 import {calcArrayT, operatorT} from './services/types';
 import handelMath from './services/math';
+import Keybord from './services/Keybord';
 
 interface CalcState {
   current: string;
@@ -28,11 +29,6 @@ export default class App extends Component<{}, CalcState> {
 
   componentDidMount = () => {
     this.toggleDarkTheme(true);
-    window.addEventListener('keydown', (e: KeyboardEvent) => this.handelKeyBoard(e.key));
-  };
-
-  componentWillUnmount = () => {
-    window.removeEventListener('keydown', (e: KeyboardEvent) => this.handelKeyBoard(e.key));
   };
 
   //* CALC LOOP *//
@@ -87,7 +83,8 @@ export default class App extends Component<{}, CalcState> {
   };
 
   clickEqual = () => {
-    this.handelCalc(this.state.current.replace(REGEX_UTILITY.equal, '').split(' ') as calcArrayT);
+    const calcArray = this.state.current.replace(REGEX_UTILITY.equal, '').split(' ') as calcArrayT;
+    this.handelCalc(calcArray);
   };
 
   clickClear = () => {
@@ -103,87 +100,9 @@ export default class App extends Component<{}, CalcState> {
 
   toggleDarkTheme = (_init?: boolean) => {
     const storge: boolean = window.sessionStorage.getItem('dark-theme') === 'true' ? true : false;
-    let theme;
-    theme = String(_init ? storge : !storge);
+    let theme = String(_init ? storge : !storge);
     window.sessionStorage.setItem('dark-theme', theme);
     document.documentElement.setAttribute('dark-theme', theme);
-  };
-
-  //* KEYBOARD *//
-  handelKeyBoard = (key: string) => {
-    let id: string = '';
-    let callback: any = this.clickInput;
-    let keyVal: string = key;
-    switch (key) {
-      case '0':
-        id = 'zero';
-        break;
-      case '1':
-        id = 'one';
-        break;
-      case '2':
-        id = 'two';
-        break;
-      case '3':
-        id = 'three';
-        break;
-      case '4':
-        id = 'four';
-        break;
-      case '5':
-        id = 'five';
-        break;
-      case '6':
-        id = 'six';
-        break;
-      case '7':
-        id = 'seven';
-        break;
-      case '8':
-        id = 'eight';
-        break;
-      case '9':
-        id = 'nine';
-        break;
-      case 'Delete':
-        id = 'clear';
-        callback = this.clickClear;
-        break;
-      case 'Backspace':
-        id = 'back-space';
-        callback = this.clickBackspace;
-        break;
-      case 'Enter':
-      case '=':
-        id = 'equals';
-        callback = this.clickEqual;
-        break;
-      case '+':
-        id = 'add';
-        break;
-      case '-':
-        id = 'subtract';
-        break;
-      case '×':
-      case '*':
-        id = 'multiply';
-        keyVal = '×';
-        break;
-      case '÷':
-      case '/':
-        id = 'divide';
-        keyVal = '÷';
-        break;
-      case '.':
-        id = 'decimal';
-        break;
-      default:
-        break;
-    }
-    if (id !== '') {
-      document.getElementById(id)?.focus();
-      callback(keyVal);
-    }
   };
 
   render() {
@@ -253,6 +172,7 @@ export default class App extends Component<{}, CalcState> {
         <a id='creadit' target='blink' href='https://github.com/AvivAbachi'>
           Design and Code by AvivAbachi@Gmail.com
         </a>
+        <Keybord clickInput={this.clickInput} clickEqual={this.clickEqual} clickBackspace={this.clickBackspace} clickClear={this.clickClear} />
       </main>
     );
   }
