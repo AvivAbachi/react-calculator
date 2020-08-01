@@ -22,9 +22,7 @@ const REGEX_UTILITY = {
 export default class App extends Component<{}, CalcState> {
   constructor(props: any) {
     super(props);
-    this.state = {
-      current: '',
-    };
+    this.state = {current: '0'};
   }
 
   componentDidMount = () => {
@@ -49,7 +47,7 @@ export default class App extends Component<{}, CalcState> {
 
   //* ON CLICKS EVENTS *//
   clickInput = (input: string) => {
-    let newString = this.state.current;
+    let newString = this.state.current === 'Infinity' ? '0' : this.state.current;
     switch (input) {
       case '-':
         newString += newString === '' ? '-' : newString.match(REGEX_UTILITY.min) ? ' -' : '';
@@ -69,12 +67,12 @@ export default class App extends Component<{}, CalcState> {
         }
         break;
       case '0':
-        if (!newString.endsWith(' 0') && newString !== '') {
+        if (!newString.endsWith(' 0') && newString !== '0') {
           newString += newString.match(REGEX_UTILITY.zero) ? ' 0' : '0';
         }
         break;
       default:
-        newString += !newString.match(REGEX_UTILITY.defaultInput) || newString === '' ? input : ` ${input}`;
+        newString === '0' ? (newString = input) : (newString += !newString.match(REGEX_UTILITY.defaultInput || newString === '') ? input : ` ${input}`);
         break;
     }
     if (this.state.current !== newString) {
@@ -89,12 +87,12 @@ export default class App extends Component<{}, CalcState> {
 
   clickClear = () => {
     if (this.state.current !== '') {
-      this.setState({current: ''});
+      this.setState({current: '0'});
     }
   };
 
   clickBackspace = () => {
-    const amountBackSpace = this.state.current.slice(0, this.state.current.endsWith('0.') ? -1 : -2).trimEnd();
+    const amountBackSpace = this.state.current.slice(0, this.state.current.endsWith('0.') ? -2 : -1).trimEnd();
     this.setState({current: amountBackSpace as string});
   };
 
@@ -110,7 +108,7 @@ export default class App extends Component<{}, CalcState> {
       <main id='calc' className='calc'>
         <h1>React Calculator</h1>
         <label>
-          <input id='display' value={this.state.current || '0'} readOnly />
+          <input id='display' value={this.state.current === 'Infinity' ? 'Cannot divide by zero' : this.state.current} readOnly />
         </label>
         <Btn id='clear' onClick={() => this.clickClear()}>
           AC
