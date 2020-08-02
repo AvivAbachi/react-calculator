@@ -72,7 +72,7 @@ export default class App extends Component<{}, CalcState> {
         }
         break;
       default:
-        newString === '0' ? (newString = input) : (newString += !newString.match(REGEX_UTILITY.defaultInput || newString === '') ? input : ` ${input}`);
+        newString === '0' ? (newString = input) : (newString += !newString.match(REGEX_UTILITY.defaultInput) ? input : ` ${input}`);
         break;
     }
     if (this.state.current !== newString) {
