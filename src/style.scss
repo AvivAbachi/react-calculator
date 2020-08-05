@@ -1,3 +1,22 @@
+* {
+  font-family: 'Fredoka One', -apple-system, BlinkMacSystemFont, Roboto, 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+  line-height: normal;
+  box-sizing: border-box;
+  transition-timing-function: ease;
+  transition-duration: 0.3s;
+  transition-property: background-color, color, box-shadow, transform;
+  border: 0;
+  outline: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'Fredoka One';
+  src: url('./font/FredokaOne-Regular.ttf');
+}
+
 //LIGHT THEME
 $text-color: #003652;
 $buttons-color: #f4f4f4;
@@ -22,11 +41,10 @@ body {
   justify-content: center;
   min-height: 100vh;
   margin: 0;
-  padding: 32px;
   background-color: $bg-color;
 }
 
-.calc {
+#calc {
   display: grid;
   justify-content: center;
   width: fit-content;
@@ -90,8 +108,8 @@ h1 {
 #divide,
 #multiply,
 #subtract {
-  padding-bottom: 4px;
   font-size: 1.75rem;
+  padding-bottom: 4px;
   background-color: lightskyblue;
 }
 
@@ -102,15 +120,15 @@ h1 {
 }
 
 #back-space {
-  padding-bottom: 6px;
   font-size: 1.75rem;
   padding-right: 8px;
+  padding-bottom: 6px;
   background-color: lightsalmon;
 }
 
 #equals {
-  padding-bottom: 4px;
   font-size: 1.75rem;
+  padding-bottom: 4px;
   background-color: darkseagreen;
   grid-column-start: 3;
   grid-column-end: 5;
@@ -146,7 +164,7 @@ h1 {
   body {
     background-color: $bg-color-dark;
   }
-  .calc {
+  #calc {
     background-color: $calc-color-dark;
   }
   a,
@@ -182,16 +200,13 @@ h1 {
   }
 }
 
-@media screen and (max-width: 720px) and (orientation: landscape), (max-width: 720px) {
-  body {
-    display: block;
-    padding: 0;
-  }
-  .calc {
-    align-content: flex-start;
+@media screen and (max-width: 720px) {
+  #calc {
+    align-content: space-between;
+    justify-content: space-between;
     min-width: 100vw;
     min-height: 100vh;
-    padding-top: 16px;
+    padding: 16px;
     border-radius: 0;
     box-shadow: none;
   }

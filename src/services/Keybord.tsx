@@ -93,7 +93,7 @@ class Keybord extends Component<KeybordProps> {
     }
   };
   render() {
-    return <></>;
+    return null;
   }
 }
 export default React.memo(Keybord);
