@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-calculator"]=this["webpackJsonpreact-calculator"]||[]).push([[4],{10:function(t,c,a){"use strict";a.r(c);var e=a(0),n=a.n(e),r=n.a.memo((function(t){return n.a.createElement("button",{id:t.id,onClick:t.onClick},t.children)}));c.default=r}}]);
-//# sourceMappingURL=4.325b985e.chunk.js.map
