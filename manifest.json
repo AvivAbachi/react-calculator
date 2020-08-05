@@ -4,7 +4,7 @@
   "description": "React Calculator Created by AvivAbachi@gmail.com",
   "start_url": ".",
   "orientation": "portrait",
-  "display": "fullscreen",
+  "display": "standalone",
   "theme_color": "#003652",
   "background_color": "#e4e4e4",
   "lang": "en",
