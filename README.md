@@ -24,6 +24,8 @@ To Visit App:
 
 ## Languages & tools
 
+### HTML
+
 #### TypeScript
 
 - React
