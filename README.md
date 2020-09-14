@@ -24,8 +24,8 @@ To Visit App:
 
 ### JavaScript
 
--React
--TypeScript
+- React
+- TypeScript
 
 ### CSS
 
