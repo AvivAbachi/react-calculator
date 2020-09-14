@@ -1,7 +1,9 @@
 # React calculator
 
-React Calculator whit support PWA
-Not use method `eval` to soulde
+React Calculator whit support PWA.
+
+Not use method `eval` to soulde.
+
 The project of part FFC challenge.
 
 ## Installation and Setup Instructions
