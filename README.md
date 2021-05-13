@@ -1,6 +1,6 @@
 # React calculator
 
-React Calculator whit support PWA.
+React Calculator with support PWA.
 
 Not use method `eval` to soulde.
 
